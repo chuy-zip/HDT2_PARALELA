@@ -1,5 +1,6 @@
 #include <mpi.h>
 #include <stdio.h>
+#include <unistd.h>
 
 int main(int argc, char** argv){
     MPI_Init(&argc, &argv);
@@ -8,6 +9,9 @@ int main(int argc, char** argv){
 
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+    //esto los deja ordenados al final
+    //sleep(1 * rank);
 
     if (rank == 0){
         printf("Rank %d comunicador\n", rank);
